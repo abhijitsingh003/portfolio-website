@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hitesh Malik - Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="assets/images/favicon.png">
+</head>
+
+<body>
+    <nav class="glass-nav">
+        <a href="#hero" class="logo">HITESH MALIK</a>
+        <ul class="nav-links">
+            <li><a href="assets/documents/resume.pdf" target="_blank">Resume</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+        <div class="hamburger">
+            <span class="line"></span>
+            <span class="line"></span>
+            <span class="line"></span>
+        </div>
+    </nav>
+
+    <header id="hero">
+        <div class="hero-content">
+            <h1 class="fade-in">Empowering Ideas through<br><span class="highlight">Code & Design</span>.</h1>
+        </div>
+        <div class="scroll-indicator">
+            <span>Scroll</span>
+        </div>
+    </header>
+
+    <section id="about" class="content-section">
+        <div class="container">
+            <h2 class="section-title fade-in-up">Aspiring Full Stack Developer</h2>
+            <div class="bio-container fade-in-up delay-1">
+                <p class="typewriter-text">I’m a creative developer and designer passionate about crafting clean,
+                    immersive digital experiences. I enjoy building thoughtful interfaces and scalable systems that
+                    blend aesthetics with performance.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sections for Resume/Projects/Drafts placeholders if needed, or keeping existing structure mapped -->
+    <section id="projects" class="content-section">
+        <div class="container">
+            <h2 class="section-title fade-in-up">Selected Works</h2>
+            <div class="work-grid">
+                <a href="https://github.com/HiteshKumarMalik/Cry-Bug" target="_blank"
+                    class="work-item glass-card fade-in-up delay-1">
+                    <h3>Cry-Bug Web Application</h3>
+                    <p>Full-stack bug tracking with role-based access.</p>
+                    <div class="tech-stack">
+                        <span class="tech-pill">Node.js</span>
+                        <span class="tech-pill">Express</span>
+                        <span class="tech-pill">MongoDB</span>
+                    </div>
+                </a>
+                <div class="work-item glass-card fade-in-up delay-2">
+                    <h3>Task Manager Portal</h3>
+                    <p>Java-based task organizer using Linked Lists.</p>
+                    <div class="tech-stack">
+                        <span class="tech-pill">Java</span>
+                        <span class="tech-pill">OOP</span>
+                        <span class="tech-pill">Data Structures</span>
+                    </div>
+                </div>
+                <a href="https://github.com/HiteshKumarMalik/INT-428---AI-PROJECT" target="_blank"
+                    class="work-item glass-card fade-in-up delay-3">
+                    <h3>AI Smart Budgeting Bot</h3>
+                    <p>NLP-powered personal finance assistant.</p>
+                    <div class="tech-stack">
+                        <span class="tech-pill">Python</span>
+                        <span class="tech-pill">NLP</span>
+                        <span class="tech-pill">ML</span>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section id="drafts" class="content-section">
+        <div class="container">
+            <h2 class="section-title fade-in-up">Skills & Expertise</h2>
+            <ul class="expertise-list">
+                <li class="fade-in-up delay-1"><a href="#" class="skill-tag">Full Stack Development</a></li>
+                <li class="fade-in-up delay-2"><a href="#" class="skill-tag">Data Structures & Algorithms</a></li>
+                <li class="fade-in-up delay-3"><a href="#" class="skill-tag">Design Systems</a></li>
+                <li class="fade-in-up delay-4"><a href="#" class="skill-tag">UI/UX Understanding</a></li>
+                <li class="fade-in-up delay-1"><a href="#" class="skill-tag">Java & Python</a></li>
+                <li class="fade-in-up delay-2"><a href="#" class="skill-tag">React & Node.js</a></li>
+            </ul>
+        </div>
+    </section>
+
+    <section id="contact" class="content-section">
+        <div class="container">
+            <h2 class="section-title fade-in-up">Open to freelance projects and internships.</h2>
+
+            <div class="social-icons fade-in-up delay-1">
+                <a href="https://github.com/HiteshKumarMalik" target="_blank" class="icon-link"><i
+                        data-lucide="github"></i></a>
+                <a href="https://www.linkedin.com/in/hitesh-malik-442400298/" target="_blank" class="icon-link"><i
+                        data-lucide="linkedin"></i></a>
+                <a href="#" class="icon-link"><i data-lucide="twitter"></i></a>
+                <a href="mailto:malikhitesh952@gmail.com" class="icon-link"><i data-lucide="mail"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; Thanks for visiting my portfolio. </br> Have a nice day :) </p>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+
+</html>
