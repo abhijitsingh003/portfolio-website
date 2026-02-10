@@ -524,6 +524,14 @@ footer {
         font-size: 2rem;
     }
 
+    /* Fix background image for mobile */
+    #hero {
+        background-attachment: scroll;
+        background-size: cover;
+        background-position: center center;
+        min-height: 100vh;
+    }
+
     .glass-nav {
         padding: 15px 20px;
     }
