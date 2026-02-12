@@ -43,13 +43,21 @@ It uses a lightweight 3D library called **Three.js** (via a helper library) to d
     *   Want the colors back? Just **click anywhere**!
     *   Click again to go back to subtle mode. You have full control.
 
-## 🚀 How to Run
+## 🚀 How to Use / Clone
 
-Since there are no build steps, you can simply:
+Feel free to use this template for your own portfolio!
 
-1.  Open the folder in VS Code.
-2.  Use the "Live Server" extension to launch `index.html`.
-3.  That's it!
+1.  **Clone the repository**:
+    ```bash
+    git clone https://github.com/abhijitsingh003/portfolio-website.git
+    ```
+2.  **Run Locally**:
+    - Open `index.html` in your browser.
+    - Or use the "Live Server" extension in VS Code.
+
+## 📄 License
+
+This project is open source and available under the [MIT License](LICENSE). Feel free to learn from it, fork it, or use it for your own projects.
 
 ---
 
