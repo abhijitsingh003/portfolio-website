@@ -59,7 +59,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const typewriterElement = document.querySelector('.typewriter-text');
 
     if (typewriterElement) {
-        const textToType = typewriterElement.textContent.trim(); // Get the original text
+        // Get text, replace newlines/tabs with space, and collapse multiple spaces to one
+        const textToType = typewriterElement.textContent.replace(/\s+/g, ' ').trim();
         typewriterElement.textContent = ''; // Clear it initially
 
         const typeWriterObserver = new IntersectionObserver((entries) => {
@@ -75,15 +76,35 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function startTyping(element, text) {
+        element.innerHTML = ''; // Ensure clear start
+        const bioBar = document.querySelector('.bio-bar');
+        if (bioBar) bioBar.style.height = '0px'; // Reset bar height
+
+        // Pre-render all characters as invisible spans to lock layout
+        const chars = text.split('').map(char => {
+            const span = document.createElement('span');
+            span.textContent = char;
+            span.style.opacity = '0';
+            element.appendChild(span);
+            return span;
+        });
+
         let i = 0;
-        element.textContent = ''; // Ensure clear start
-        const speed = 30; // ms per character
+        const speed = 25; // Speed in ms
 
         function type() {
-            if (i < text.length) {
-                element.textContent += text.charAt(i);
+            if (i < chars.length) {
+                // Reveal character
+                chars[i].style.opacity = '1';
+
+                // Update bar height to match the bottom of the current character
+                if (bioBar) {
+                    const currentHeight = chars[i].offsetTop + chars[i].offsetHeight;
+                    bioBar.style.height = `${currentHeight}px`;
+                }
+
                 i++;
-                setTimeout(type, speed);
+                setTimeout(() => requestAnimationFrame(type), speed);
             }
         }
         type();

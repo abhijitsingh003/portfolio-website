@@ -4,18 +4,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hitesh Malik - Portfolio</title>
+    <title>Abhijit Singh - Portfolio</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/lucide@latest"></script>
     <link rel="stylesheet" href="style.css">
-    <link rel="icon" type="image/png" href="assets/images/favicon.png">
+    <link rel="icon" type="image/png" href="assets/images/favicon.png?v=new">
 </head>
 
 <body>
     <nav class="glass-nav">
-        <a href="#hero" class="logo">HITESH MALIK</a>
+        <a href="#hero" class="logo">ABHIJIT SINGH</a>
         <ul class="nav-links">
             <li><a href="assets/documents/resume.pdf" target="_blank">Resume</a></li>
             <li><a href="#projects">Projects</a></li>
@@ -30,7 +30,7 @@
 
     <header id="hero">
         <div class="hero-content">
-            <h1 class="fade-in">Empowering Ideas through<br><span class="highlight">Code & Design</span>.</h1>
+            <h1 class="fade-in">Empowering Ideas through<br><span class="highlight">Design & Code</span></h1>
         </div>
         <div class="scroll-indicator">
             <span>Scroll</span>
@@ -39,47 +39,56 @@
 
     <section id="about" class="content-section">
         <div class="container">
-            <h2 class="section-title fade-in-up">Aspiring Full Stack Developer</h2>
+            <h2 class="section-title fade-in-up">UI/UX Designer & Developer</h2>
             <div class="bio-container fade-in-up delay-1">
-                <p class="typewriter-text">I’m a creative developer and designer passionate about crafting clean,
-                    immersive digital experiences. I enjoy building thoughtful interfaces and scalable systems that
-                    blend aesthetics with performance.</p>
+                <div class="bio-bar"></div>
+                <p class="typewriter-text">Hi, I'm Abhijit :) a UI/UX Designer & Full-Stack Developer. I specialize in
+                    translating complex usability problems into clean, modern interfaces using Figma, React, Express.js,
+                    and modern design tools. With a keen eye for detail, whether I’m observing user behavior or
+                    architecting a scalable system, my goal always stays the same - creating experiences that "just
+                    click" for the user.</p>
             </div>
         </div>
     </section>
 
-    <!-- Sections for Resume/Projects/Drafts placeholders if needed, or keeping existing structure mapped -->
+    </section>
     <section id="projects" class="content-section">
         <div class="container">
             <h2 class="section-title fade-in-up">Selected Works</h2>
             <div class="work-grid">
-                <a href="https://github.com/HiteshKumarMalik/Cry-Bug" target="_blank"
+                <a href="https://github.com/abhijitsingh003/CalManage.git" target="_blank"
                     class="work-item glass-card fade-in-up delay-1">
-                    <h3>Cry-Bug Web Application</h3>
-                    <p>Full-stack bug tracking with role-based access.</p>
+                    <h3>CalManage</h3>
+                    <p>A MERN stack calendar app for managing events, tasks, and shared schedules in real time.</p>
                     <div class="tech-stack">
-                        <span class="tech-pill">Node.js</span>
-                        <span class="tech-pill">Express</span>
+                        <div class="tech-label">Tech Stack</div>
+                        <span class="tech-pill">React</span>
                         <span class="tech-pill">MongoDB</span>
+                        <span class="tech-pill">Node.js</span>
                     </div>
                 </a>
-                <div class="work-item glass-card fade-in-up delay-2">
-                    <h3>Task Manager Portal</h3>
-                    <p>Java-based task organizer using Linked Lists.</p>
+                <a href="https://www.behance.net/gallery/244034965/Product-Design-Case-Study" target="_blank"
+                    class="work-item glass-card fade-in-up delay-2">
+                    <h3>Product Design</h3>
+                    <p>Hands-free door handle product design case study improving hygiene and accessibility in public
+                        spaces.</p>
                     <div class="tech-stack">
-                        <span class="tech-pill">Java</span>
-                        <span class="tech-pill">OOP</span>
-                        <span class="tech-pill">Data Structures</span>
+                        <div class="tech-label">Tech Stack</div>
+                        <span class="tech-pill">Figma</span>
+                        <span class="tech-pill">Sketch</span>
+                        <span class="tech-pill">Illustrator</span>
                     </div>
-                </div>
-                <a href="https://github.com/HiteshKumarMalik/INT-428---AI-PROJECT" target="_blank"
+                </a>
+                <a href="https://www.behance.net/gallery/240778827/CraftSphere-%28UX-Case-Study%29" target="_blank"
                     class="work-item glass-card fade-in-up delay-3">
-                    <h3>AI Smart Budgeting Bot</h3>
-                    <p>NLP-powered personal finance assistant.</p>
+                    <h3>CraftSphere</h3>
+                    <p>Digital marketplace UI/UX case study connecting local artisans with global customers through
+                        simple UX.</p>
                     <div class="tech-stack">
-                        <span class="tech-pill">Python</span>
-                        <span class="tech-pill">NLP</span>
-                        <span class="tech-pill">ML</span>
+                        <div class="tech-label">Tech Stack</div>
+                        <span class="tech-pill">Figma</span>
+                        <span class="tech-pill">Balsamiq</span>
+                        <span class="tech-pill">Affinity</span>
                     </div>
                 </a>
             </div>
@@ -90,12 +99,13 @@
         <div class="container">
             <h2 class="section-title fade-in-up">Skills & Expertise</h2>
             <ul class="expertise-list">
-                <li class="fade-in-up delay-1"><a href="#" class="skill-tag">Full Stack Development</a></li>
-                <li class="fade-in-up delay-2"><a href="#" class="skill-tag">Data Structures & Algorithms</a></li>
-                <li class="fade-in-up delay-3"><a href="#" class="skill-tag">Design Systems</a></li>
-                <li class="fade-in-up delay-4"><a href="#" class="skill-tag">UI/UX Understanding</a></li>
-                <li class="fade-in-up delay-1"><a href="#" class="skill-tag">Java & Python</a></li>
-                <li class="fade-in-up delay-2"><a href="#" class="skill-tag">React & Node.js</a></li>
+                <li class="fade-in-up delay-1"><a href="#" class="skill-tag">UI/UX Design</a></li>
+                <li class="fade-in-up delay-2"><a href="#" class="skill-tag">Figma & AdobeXD</a></li>
+                <li class="fade-in-up delay-3"><a href="#" class="skill-tag">User Research</a></li>
+                <li class="fade-in-up delay-4"><a href="#" class="skill-tag">Prototyping</a></li>
+                <li class="fade-in-up delay-1"><a href="#" class="skill-tag">React & Express.js</a></li>
+                <li class="fade-in-up delay-2"><a href="#" class="skill-tag">HTML, CSS & JS</a></li>
+                <li class="fade-in-up delay-3"><a href="#" class="skill-tag">MongoDB</a></li>
             </ul>
         </div>
     </section>
@@ -105,23 +115,112 @@
             <h2 class="section-title fade-in-up">Open to freelance projects and internships.</h2>
 
             <div class="social-icons fade-in-up delay-1">
-                <a href="https://github.com/HiteshKumarMalik" target="_blank" class="icon-link"><i
+                <a href="https://github.com/abhijitsingh003" target="_blank" class="icon-link"><i
                         data-lucide="github"></i></a>
-                <a href="https://www.linkedin.com/in/hitesh-malik-442400298/" target="_blank" class="icon-link"><i
+                <a href="http://www.linkedin.com/in/abhijitsingh003" target="_blank" class="icon-link"><i
                         data-lucide="linkedin"></i></a>
-                <a href="#" class="icon-link"><i data-lucide="twitter"></i></a>
-                <a href="mailto:malikhitesh952@gmail.com" class="icon-link"><i data-lucide="mail"></i></a>
+                <a href="http://www.twitter.com" class="icon-link"><i data-lucide="twitter"></i></a>
+                <a href="mailto:abhijit.singh.2k21@gmail.com" class="icon-link"><i data-lucide="mail"></i></a>
             </div>
         </div>
     </section>
 
     <footer>
-        <p>&copy; Thanks for visiting my portfolio. </br> Have a nice day :) </p>
+        <p> Thanks for scrolling by </br> Have a nice day :) </p>
     </footer>
 
     <script src="script.js"></script>
     <script>
         lucide.createIcons();
+    </script>
+
+    <!-- Container for the Canvas -->
+    <div class="tubes-cursor-container">
+        <canvas id="tubes-canvas" class="tubes-canvas"></canvas>
+    </div>
+
+    <script type="module">
+        // JavaScript Logic for Tubes Cursor
+        const canvas = document.getElementById('tubes-canvas');
+        let app = null;
+
+        // Helper to generate random colors
+        const randomColors = (count) => {
+            return new Array(count)
+                .fill(0)
+                .map(() => "#" + Math.floor(Math.random() * 16777215).toString(16).padStart(6, '0'));
+        };
+
+        // Initialize after a short delay to ensure DOM is ready
+        setTimeout(() => {
+            // Import the TubesCursor module dynamically from CDN
+            import('https://cdn.jsdelivr.net/npm/threejs-components@0.0.19/build/cursors/tubes1.min.js')
+                .then(module => {
+                    const TubesCursor = module.default;
+                    if (canvas) {
+                        // Initialize the cursor effect
+                        app = TubesCursor(canvas, {
+                            tubes: {
+                                colors: ["#5e72e4", "#8965e0", "#f5365c"],
+                                lights: {
+                                    intensity: 200,
+                                    colors: ["#21d4fd", "#b721ff", "#f4d03f", "#11cdef"]
+                                }
+                            }
+                        });
+                    }
+                })
+                .catch(err => console.error("Failed to load TubesCursor module:", err));
+        }, 100);
+
+        // State management for cursor theme
+        let isDefaultTheme = true;
+
+        const themes = {
+            default: {
+                tubes: ["#5e72e4", "#8965e0", "#f5365c"],
+                lights: {
+                    intensity: 200,
+                    colors: ["#21d4fd", "#b721ff", "#f4d03f", "#11cdef"]
+                }
+            },
+            bw: {
+                tubes: ["#4a4a4a", "#2a2a2a", "#1a1a1a"], // Subtle grays
+                lights: {
+                    intensity: 50, // Much less glowy
+                    colors: ["#ffffff", "#808080", "#404040"] // White and gray lights
+                }
+            }
+        };
+
+        // Auto-switch to B/W theme after 5 seconds
+        setTimeout(() => {
+            if (app && isDefaultTheme) {
+                isDefaultTheme = false;
+                const theme = themes.bw;
+
+                app.tubes.setColors(theme.tubes);
+                app.tubes.setLightsColors(theme.lights.colors);
+            }
+        }, 5000);
+
+        // Click handler to toggle themes manually
+        window.addEventListener('click', () => {
+            if (app) {
+                isDefaultTheme = !isDefaultTheme;
+                const theme = isDefaultTheme ? themes.default : themes.bw;
+
+                app.tubes.setColors(theme.tubes);
+                app.tubes.setLightsColors(theme.lights.colors);
+            }
+        });
+
+        // Cleanup on unload (optional for simple pages)
+        window.addEventListener('beforeunload', () => {
+            if (app && typeof app.dispose === 'function') {
+                app.dispose();
+            }
+        });
     </script>
 </body>
 
