@@ -640,7 +640,7 @@ footer {
 
     /* Mobile Layout Adjustments */
     .content-section {
-        padding: 80px 20px;
+        padding: 60px 15px;
     }
 
     .section-title {
@@ -662,8 +662,13 @@ footer {
     }
 
     .bio-container {
-        padding-left: 0;
+        padding-left: 15px;
         padding-right: 0;
+    }
+
+    #about p {
+        font-size: 1.1rem;
+        line-height: 1.5;
     }
 
     .typewriter-text {
