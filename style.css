@@ -661,6 +661,15 @@ footer {
         font-size: 1.3rem;
     }
 
+    .bio-container {
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    .typewriter-text {
+        text-align: left;
+    }
+
     .expertise-list {
         gap: 15px;
     }
