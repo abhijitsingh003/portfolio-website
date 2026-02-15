@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     window.addEventListener('scroll', () => {
         if (window.scrollY > 50) {
-            nav.style.background = 'rgba(15, 17, 16, 0.8)';
+            nav.style.background = 'rgba(15, 17, 16, 0.5)';
             nav.style.padding = '20px 60px'; /* Keep padding consistent or slightly reduce */
             nav.style.borderBottom = '1px solid var(--glass-border)';
             scrollIndicator.style.opacity = '0';
