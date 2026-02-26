@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     window.addEventListener('scroll', () => {
         if (window.scrollY > 50) {
-            nav.style.background = 'rgba(15, 17, 16, 0.8)';
+            nav.style.background = 'rgba(15, 17, 16, 0.5)';
             nav.style.padding = '20px 60px'; /* Keep padding consistent or slightly reduce */
             nav.style.borderBottom = '1px solid var(--glass-border)';
             scrollIndicator.style.opacity = '0';
@@ -108,5 +108,34 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
         type();
+    }
+
+    // Mobile Optimization Notice Logic
+    const mobileNotice = document.getElementById('mobile-notice');
+    const closeNoticeBtn = document.getElementById('close-mobile-notice');
+
+    if (mobileNotice && closeNoticeBtn) {
+        // Check if user has already dismissed the notice in this session
+        const hasDismissedNotice = sessionStorage.getItem('mobileNoticeDismissed');
+
+        // Show notice only on mobile screens (width <= 1024px to cover tablets too) and if not dismissed
+        if (window.innerWidth <= 1024 && !hasDismissedNotice) {
+            mobileNotice.style.display = 'flex';
+            // Force reflow to ensure transition works
+            void mobileNotice.offsetWidth;
+            // Add a small delay before showing the notice for better UX
+            setTimeout(() => {
+                mobileNotice.classList.add('show');
+            }, 100);
+        }
+
+        // Hide notice when user clicks "Continue Anyway"
+        closeNoticeBtn.addEventListener('click', () => {
+            mobileNotice.classList.remove('show');
+            setTimeout(() => {
+                mobileNotice.style.display = 'none';
+            }, 600); // Wait for transition
+            sessionStorage.setItem('mobileNoticeDismissed', 'true');
+        });
     }
 });
