@@ -742,8 +742,6 @@ footer {
     display: none;
     /* Hidden by default on desktop */
     align-items: center;
-    gap: 0.8rem;
-    /* Reduced gap between text and SVG icon */
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
     /* Softer shadow */
     width: 90%;
@@ -751,6 +749,8 @@ footer {
     /* Slightly narrower to hug content better */
     opacity: 0;
     transition: opacity 0.4s ease, transform 0.4s ease;
+    overflow: hidden;
+    /* Contains the absolute positioned progress bar */
 }
 
 .mobile-warning.show {
@@ -764,27 +764,31 @@ footer {
     color: var(--text-color);
     line-height: 1.4;
     margin: 0;
+    text-align: center;
+    /* Center the text now that the 'X' is gone */
+    width: 100%;
 }
 
-.close-btn {
-    background: none;
-    border: none;
-    color: rgba(255, 255, 255, 0.6);
-    font-size: 1.5rem;
-    cursor: pointer;
-    line-height: 1;
-    padding: 0;
-    transition: color 0.3s ease;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.toast-progress-bar {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 3px;
+    background: var(--accent-color);
+    width: 100%;
+    border-radius: 0 0 14px 14px;
 }
 
-.close-btn:hover {
-    color: white;
+.mobile-warning.show .toast-progress-bar {
+    animation: toastProgress 5s linear forwards;
 }
 
-.close-btn i {
-    width: 20px;
-    height: 20px;
+@keyframes toastProgress {
+    from {
+        width: 100%;
+    }
+
+    to {
+        width: 0%;
+    }
 }

@@ -112,30 +112,31 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Mobile Optimization Notice Logic
     const mobileNotice = document.getElementById('mobile-notice');
-    const closeNoticeBtn = document.getElementById('close-mobile-notice');
 
-    if (mobileNotice && closeNoticeBtn) {
-        // Check if user has already dismissed the notice in this session
-        const hasDismissedNotice = sessionStorage.getItem('mobileNoticeDismissed');
+    if (mobileNotice) {
+        // Check if user has already dismissed or seen the notice in this session
+        const hasSeenNotice = sessionStorage.getItem('mobileNoticeSeen');
 
-        // Show notice only on mobile screens (width <= 1024px to cover tablets too) and if not dismissed
-        if (window.innerWidth <= 1024 && !hasDismissedNotice) {
+        // Show notice only on mobile screens (width <= 1024px to cover tablets too) and if not already seen
+        if (window.innerWidth <= 1024 && !hasSeenNotice) {
             mobileNotice.style.display = 'flex';
             // Force reflow to ensure transition works
             void mobileNotice.offsetWidth;
             // Add a small delay before showing the notice for better UX
             setTimeout(() => {
                 mobileNotice.classList.add('show');
+
+                // Auto-hide the notice after 5 seconds (matching the CSS progress bar animation)
+                setTimeout(() => {
+                    mobileNotice.classList.remove('show');
+                    setTimeout(() => {
+                        mobileNotice.style.display = 'none';
+                    }, 400); // Wait for CSS transition opacity to fade out
+                }, 5000);
+
+                // Mark as seen so it doesn't bother the user again this session
+                sessionStorage.setItem('mobileNoticeSeen', 'true');
             }, 100);
         }
-
-        // Hide notice when user clicks "Continue Anyway"
-        closeNoticeBtn.addEventListener('click', () => {
-            mobileNotice.classList.remove('show');
-            setTimeout(() => {
-                mobileNotice.style.display = 'none';
-            }, 400); // Wait for transition (matches standard 0.4s)
-            sessionStorage.setItem('mobileNoticeDismissed', 'true');
-        });
     }
 });
