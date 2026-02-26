@@ -118,17 +118,23 @@ document.addEventListener('DOMContentLoaded', () => {
         // Check if user has already dismissed the notice in this session
         const hasDismissedNotice = sessionStorage.getItem('mobileNoticeDismissed');
 
-        // Show notice only on mobile screens (width <= 768px) and if not dismissed
-        if (window.innerWidth <= 768 && !hasDismissedNotice) {
+        // Show notice only on mobile screens (width <= 1024px to cover tablets too) and if not dismissed
+        if (window.innerWidth <= 1024 && !hasDismissedNotice) {
+            mobileNotice.style.display = 'flex';
+            // Force reflow to ensure transition works
+            void mobileNotice.offsetWidth;
             // Add a small delay before showing the notice for better UX
             setTimeout(() => {
                 mobileNotice.classList.add('show');
-            }, 1000);
+            }, 100);
         }
 
         // Hide notice when user clicks "Continue Anyway"
         closeNoticeBtn.addEventListener('click', () => {
             mobileNotice.classList.remove('show');
+            setTimeout(() => {
+                mobileNotice.style.display = 'none';
+            }, 600); // Wait for transition
             sessionStorage.setItem('mobileNoticeDismissed', 'true');
         });
     }
