@@ -109,4 +109,27 @@ document.addEventListener('DOMContentLoaded', () => {
         }
         type();
     }
+
+    // Mobile Optimization Notice Logic
+    const mobileNotice = document.getElementById('mobile-notice');
+    const closeNoticeBtn = document.getElementById('close-mobile-notice');
+
+    if (mobileNotice && closeNoticeBtn) {
+        // Check if user has already dismissed the notice in this session
+        const hasDismissedNotice = sessionStorage.getItem('mobileNoticeDismissed');
+
+        // Show notice only on mobile screens (width <= 768px) and if not dismissed
+        if (window.innerWidth <= 768 && !hasDismissedNotice) {
+            // Add a small delay before showing the notice for better UX
+            setTimeout(() => {
+                mobileNotice.classList.add('show');
+            }, 1000);
+        }
+
+        // Hide notice when user clicks "Continue Anyway"
+        closeNoticeBtn.addEventListener('click', () => {
+            mobileNotice.classList.remove('show');
+            sessionStorage.setItem('mobileNoticeDismissed', 'true');
+        });
+    }
 });
