@@ -134,7 +134,7 @@ document.addEventListener('DOMContentLoaded', () => {
             mobileNotice.classList.remove('show');
             setTimeout(() => {
                 mobileNotice.style.display = 'none';
-            }, 600); // Wait for transition
+            }, 400); // Wait for transition (matches standard 0.4s)
             sessionStorage.setItem('mobileNoticeDismissed', 'true');
         });
     }
