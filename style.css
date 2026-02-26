@@ -725,63 +725,57 @@ footer {
 /* Mobile Notice Styles */
 .mobile-notice-overlay {
     position: fixed;
-    bottom: 25px;
-    left: 20px;
-    right: 20px;
-    z-index: 10000;
-    background: rgba(15, 20, 25, 0.85);
-    /* Dark solid-ish tint */
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    border: 1px solid rgba(255, 255, 255, 0.05);
-    /* Extremely subtle border */
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%) translateY(100px);
+    background: rgba(4, 30, 34, 0.9);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid var(--glass-border);
+    padding: 1rem 1.5rem;
     border-radius: 16px;
-    padding: 20px 25px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    z-index: 1000;
     display: none;
-    /* Controlled by JS strictly */
-    flex-direction: row;
-    /* Horizontal layout now */
-    justify-content: space-between;
+    /* Hidden by default on desktop, controlled by JS */
     align-items: center;
-    gap: 15px;
-    transform: translateY(150%);
+    gap: 1rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    width: 90%;
+    max-width: 400px;
     opacity: 0;
-    transition: transform 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.6s ease;
+    transition: opacity 0.4s ease, transform 0.4s ease;
 }
 
 .mobile-notice-overlay.show {
-    transform: translateY(0);
+    transform: translateX(-50%) translateY(0);
     opacity: 1;
 }
 
 .mobile-notice-overlay p {
-    font-size: 0.9rem;
-    opacity: 0.9;
-    line-height: 1.5;
-    margin: 0;
-    /* Remove bottom margin */
-    color: var(--text-color);
+    font-size: 0.85rem;
     font-weight: 300;
+    color: var(--text-color);
+    line-height: 1.4;
+    margin: 0;
     text-align: left;
-    /* Align text left instead of center */
 }
 
 #close-mobile-notice {
-    background: transparent;
+    background: none;
     border: none;
-    color: var(--text-color);
-    opacity: 0.6;
-    padding: 5px;
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 1.5rem;
     cursor: pointer;
-    transition: all 0.3s ease;
+    line-height: 1;
+    padding: 0;
+    transition: color 0.3s ease;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
 #close-mobile-notice:hover {
-    opacity: 1;
+    color: white;
 }
 
 #close-mobile-notice i {
