@@ -729,18 +729,21 @@ footer {
     left: 20px;
     right: 20px;
     z-index: 10000;
-    background: linear-gradient(145deg, rgba(33, 212, 253, 0.08), rgba(0, 0, 0, 0.8));
-    backdrop-filter: blur(25px);
-    -webkit-backdrop-filter: blur(25px);
-    border: 1px solid rgba(33, 212, 253, 0.2);
-    border-radius: 20px;
-    padding: 30px 25px;
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6), inset 0 0 20px rgba(33, 212, 253, 0.05);
+    background: rgba(15, 20, 25, 0.85);
+    /* Dark solid-ish tint */
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    /* Extremely subtle border */
+    border-radius: 16px;
+    padding: 20px 25px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
     display: none;
     /* Controlled by JS strictly */
-    flex-direction: column;
+    flex-direction: row;
+    /* Horizontal layout now */
+    justify-content: space-between;
     align-items: center;
-    text-align: center;
     gap: 15px;
     transform: translateY(150%);
     opacity: 0;
@@ -752,44 +755,36 @@ footer {
     opacity: 1;
 }
 
-.mobile-notice-content h3 {
-    font-weight: 300;
-    font-size: 1.4rem;
-    margin-bottom: 5px;
-    background: linear-gradient(to right, #fff, #999);
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-    letter-spacing: 0.5px;
-}
-
-.mobile-notice-content p {
-    font-size: 0.95rem;
-    opacity: 0.75;
-    line-height: 1.6;
-    margin-bottom: 20px;
+.mobile-notice-overlay p {
+    font-size: 0.9rem;
+    opacity: 0.9;
+    line-height: 1.5;
+    margin: 0;
+    /* Remove bottom margin */
     color: var(--text-color);
     font-weight: 300;
+    text-align: left;
+    /* Align text left instead of center */
 }
 
 #close-mobile-notice {
-    background: rgba(33, 212, 253, 0.1);
-    border: 1px solid rgba(33, 212, 253, 0.3);
-    color: var(--accent-color);
-    padding: 12px 30px;
-    border-radius: 50px;
-    font-family: inherit;
-    font-size: 0.95rem;
-    font-weight: 500;
+    background: transparent;
+    border: none;
+    color: var(--text-color);
+    opacity: 0.6;
+    padding: 5px;
     cursor: pointer;
     transition: all 0.3s ease;
-    width: 100%;
-    text-transform: uppercase;
-    letter-spacing: 1px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-#close-mobile-notice:active {
-    transform: scale(0.95);
-    background: rgba(33, 212, 253, 0.2);
-    box-shadow: 0 0 15px rgba(33, 212, 253, 0.2);
+#close-mobile-notice:hover {
+    opacity: 1;
+}
+
+#close-mobile-notice i {
+    width: 20px;
+    height: 20px;
 }
