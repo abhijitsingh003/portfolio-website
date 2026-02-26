@@ -722,8 +722,8 @@ footer {
     height: 100%;
 }
 
-/* Mobile Notice Styles */
-.mobile-notice-overlay {
+/* Mobile Warning Toast */
+.mobile-warning {
     position: fixed;
     bottom: 2rem;
     left: 50%;
@@ -736,7 +736,7 @@ footer {
     border-radius: 16px;
     z-index: 1000;
     display: none;
-    /* Hidden by default on desktop, controlled by JS */
+    /* Hidden by default on desktop */
     align-items: center;
     gap: 1rem;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
@@ -746,21 +746,20 @@ footer {
     transition: opacity 0.4s ease, transform 0.4s ease;
 }
 
-.mobile-notice-overlay.show {
+.mobile-warning.show {
     transform: translateX(-50%) translateY(0);
     opacity: 1;
 }
 
-.mobile-notice-overlay p {
+.mobile-warning p {
     font-size: 0.85rem;
     font-weight: 300;
     color: var(--text-color);
     line-height: 1.4;
     margin: 0;
-    text-align: left;
 }
 
-#close-mobile-notice {
+.close-btn {
     background: none;
     border: none;
     color: rgba(255, 255, 255, 0.6);
@@ -774,11 +773,11 @@ footer {
     justify-content: center;
 }
 
-#close-mobile-notice:hover {
+.close-btn:hover {
     color: white;
 }
 
-#close-mobile-notice i {
+.close-btn i {
     width: 20px;
     height: 20px;
 }
