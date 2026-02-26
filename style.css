@@ -728,25 +728,22 @@ footer {
     bottom: 2rem;
     left: 50%;
     transform: translateX(-50%) translateY(100px);
-    background: rgba(35, 40, 45, 0.85);
-    /* Subtler translucent greyish shade */
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    /* Minimal frosted border */
-    padding: 0.8rem 1rem;
-    /* Reduced padding for less negative space */
+    background: rgba(8, 8, 10, 0.75);
+    /* Subtle deep black shade */
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.04);
+    /* Ultra-minimal frosted border */
+    padding: 1rem 1.25rem;
+    /* Perfect breathing space for text-only toast */
     border-radius: 14px;
-    /* Slightly tighter radius to match scaled down size */
     z-index: 1000;
     display: none;
-    /* Hidden by default on desktop */
     align-items: center;
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
-    /* Softer shadow */
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.8), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+    /* Premium depth and lighting */
     width: 90%;
     max-width: 380px;
-    /* Slightly narrower to hug content better */
     opacity: 0;
     transition: opacity 0.4s ease, transform 0.4s ease;
     overflow: hidden;
@@ -762,10 +759,11 @@ footer {
     font-size: 0.85rem;
     font-weight: 300;
     color: var(--text-color);
-    line-height: 1.4;
+    line-height: 1.5;
     margin: 0;
-    text-align: center;
-    /* Center the text now that the 'X' is gone */
+    text-align: left;
+    /* Left-aligned for proper toast reading flow */
+    letter-spacing: 0.2px;
     width: 100%;
 }
 
@@ -774,7 +772,8 @@ footer {
     bottom: 0;
     left: 0;
     height: 3px;
-    background: var(--accent-color);
+    background: linear-gradient(90deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.25) 50%, rgba(255, 255, 255, 0.05) 100%);
+    /* Deep subtle glass shimmer */
     width: 100%;
     border-radius: 0 0 14px 14px;
 }
