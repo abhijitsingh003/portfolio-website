@@ -114,11 +114,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const mobileNotice = document.getElementById('mobile-notice');
 
     if (mobileNotice) {
-        // Check if user has already dismissed or seen the notice in this session
-        const hasSeenNotice = sessionStorage.getItem('mobileNoticeSeen');
-
-        // Show notice only on mobile screens (width <= 1024px to cover tablets too) and if not already seen
-        if (window.innerWidth <= 1024 && !hasSeenNotice) {
+        // Show notice only on mobile screens (width <= 1024px to cover tablets too)
+        if (window.innerWidth <= 1024) {
             mobileNotice.style.display = 'flex';
             // Force reflow to ensure transition works
             void mobileNotice.offsetWidth;
@@ -126,7 +123,7 @@ document.addEventListener('DOMContentLoaded', () => {
             setTimeout(() => {
                 mobileNotice.classList.add('show');
 
-                // Auto-hide the notice after 5 seconds (matching the CSS progress bar animation)
+                // Auto-hide the notice after 5 seconds
                 setTimeout(() => {
                     mobileNotice.classList.remove('show');
                     setTimeout(() => {
@@ -134,8 +131,6 @@ document.addEventListener('DOMContentLoaded', () => {
                     }, 400); // Wait for CSS transition opacity to fade out
                 }, 5000);
 
-                // Mark as seen so it doesn't bother the user again this session
-                sessionStorage.setItem('mobileNoticeSeen', 'true');
             }, 100);
         }
     }

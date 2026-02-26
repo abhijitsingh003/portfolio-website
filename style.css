@@ -771,9 +771,10 @@ footer {
     position: absolute;
     bottom: 0;
     left: 0;
-    height: 3px;
-    background: linear-gradient(90deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.25) 50%, rgba(255, 255, 255, 0.05) 100%);
-    /* Deep subtle glass shimmer */
+    height: 2px;
+    /* Thinner line */
+    background: linear-gradient(90deg, rgba(15, 120, 135, 0.3) 0%, rgba(15, 120, 135, 0.9) 50%, rgba(15, 120, 135, 0.3) 100%);
+    /* Deep premium teal */
     width: 100%;
     border-radius: 0 0 14px 14px;
 }
