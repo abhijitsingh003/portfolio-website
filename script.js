@@ -104,29 +104,33 @@ document.addEventListener('DOMContentLoaded', () => {
             place: 'Project 1',
             title: 'PedalPull',
             title2: '',
-            description: 'A product design case study focused on solving complex user problems through iterative design and testing.',
-            image: 'assets/images/pedalpull.png'
+            description: 'Hands free door interaction solution designed to improve hygiene and accessibility in public and shared spaces.',
+            image: 'assets/images/pedalpull.png',
+            link: 'https://www.behance.net/gallery/244034965/Product-Design-Case-Study'
         },
         {
             place: 'Project 2',
             title: 'NCW Redesign',
             title2: '',
-            description: 'Designing intuitive experiences that balance user needs and business goals with careful prototyping.',
-            image: 'assets/images/ncw.png'
+            description: 'Redesigned the NCW website to improve navigation, streamline access to support services, and reduce cognitive load through user centered design.',
+            image: 'assets/images/ncw.png',
+            link: 'https://www.behance.net/gallery/250908975/NCW-Website-Redesign'
         },
         {
             place: 'Project 3',
             title: 'CraftSphere',
             title2: '',
-            description: 'A research-driven redesign aimed at improving usability and engagement across digital touchpoints.',
-            image: 'https://placehold.co/800x600/1a1a2e/21d4fd?text=Project+3'
+            description: 'Digital marketplace connecting local artisans with global customers through a seamless and trust driven shopping experience.',
+            image: 'assets/images/crafts.png',
+            link: 'https://www.behance.net/gallery/240778827/CraftSphere-%28UX-Case-Study%29'
         },
         {
             place: 'Project 4',
             title: 'Feedo',
             title2: '',
-            description: 'Transforming insights into seamless digital experiences through interactive prototyping and user testing.',
-            image: 'https://placehold.co/800x600/1a1a2e/21d4fd?text=Project+4'
+            description: 'AI powered nutrition companion helping users make healthier food choices through personalized insights, behavioral support, and real time guidance.',
+            image: 'assets/images/feedo.png',
+            link: 'https://www.behance.net/gallery/240780471/Feedo-Ai-Powered-Wellbeing-App-%28UX-Case-Study%29'
         }
     ];
 
@@ -153,7 +157,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         <div class="place-box">${item.place}</div>
                         <div class="title">${item.title} ${item.title2}</div>
                         <div class="desc">${item.description}</div>
-                        <a href="#" class="view-project-btn">View Project</a>
+                        <a href="${item.link || '#'}" class="view-project-btn" target="_blank">View Project</a>
                     </div>
                 </div>
             `).join('');
@@ -305,6 +309,7 @@ document.addEventListener('DOMContentLoaded', () => {
             document.querySelector(`${detailsActive} .title-1`).textContent = data[active].title;
             document.querySelector(`${detailsActive} .title-2`).textContent = data[active].title2;
             document.querySelector(`${detailsActive} .desc`).textContent = data[active].description;
+            document.querySelector(`${detailsActive} .cta a`).href = data[active].link || '#';
 
             gsap.to(detailsActive, { opacity: 1, x: 0, ease, delay: startDelay });
         }
@@ -326,6 +331,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 document.querySelector(`${detailsActive} .title-1`).textContent = data[order[0]].title;
                 document.querySelector(`${detailsActive} .title-2`).textContent = data[order[0]].title2;
                 document.querySelector(`${detailsActive} .desc`).textContent = data[order[0]].description;
+                document.querySelector(`${detailsActive} .cta a`).href = data[order[0]].link || '#';
 
                 gsap.set(detailsActive, { zIndex: 22 });
                 gsap.to(detailsActive, { opacity: 1, delay: 0.4, ease });
