@@ -8,7 +8,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
-    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="https://unpkg.com/lucide@0.469.0/dist/umd/lucide.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <link rel="stylesheet" href="style.css">
     <link rel="icon" type="image/png" href="assets/images/favicon.png?v=new">
 </head>
@@ -30,7 +31,7 @@
 
     <header id="hero">
         <div class="hero-content">
-            <h1 class="fade-in">Empowering Ideas through<br><span class="highlight">Design & Code</span></h1>
+            <h1 class="fade-in">Empowering Ideas through<br><span class="highlight">Design that Clicks</span></h1>
         </div>
         <div class="scroll-indicator">
             <span>Scroll</span>
@@ -39,56 +40,96 @@
 
     <section id="about" class="content-section">
         <div class="container">
-            <h2 class="section-title fade-in-up">UI/UX Designer & Developer</h2>
-            <div class="bio-container fade-in-up delay-1">
+            <h2 class="section-title fade-in-up">Product Designer</h2>
+            <div class="bio-container">
                 <div class="bio-bar"></div>
-                <p class="typewriter-text">Hi, I'm Abhijit :) a UI/UX Designer & Full-Stack Developer. I specialize in
-                    translating complex usability problems into clean, modern interfaces using Figma, React, Express.js,
-                    and modern design tools. With a keen eye for detail, whether I’m observing user behavior or
-                    architecting a scalable system, my goal always stays the same - creating experiences that "just
-                    click" for the user.</p>
+                <div class="bio-text">
+                    <p>Hi, I'm Abhijit :) — a Product Designer with a strong foundation in UI/UX, driven by a simple
+                        question: "How can this be easier for the user?"
+                        I enjoy understanding user behavior, uncovering friction points, and designing intuitive
+                        experiences that feel effortless to use.
+                        My approach combines empathy, curiosity, and attention to detail, helping me turn ambiguity into
+                        clear, thoughtful solutions that balance user needs with business goals.
+                        At the core of everything I do is a simple goal: creating experiences that "just click" for the
+                        user.</p>
+                </div>
             </div>
         </div>
     </section>
     <section id="projects" class="content-section">
         <div class="container">
             <h2 class="section-title fade-in-up">Selected Works</h2>
-            <div class="work-grid">
-                <a href="https://github.com/abhijitsingh003/CalManage.git" target="_blank"
-                    class="work-item glass-card fade-in-up delay-1">
-                    <h3>CalManage</h3>
-                    <p>A MERN stack calendar app for managing events, tasks, and shared schedules in real time.</p>
-                    <div class="tech-stack">
-                        <div class="tech-label">Tech Stack</div>
-                        <span class="tech-pill">React</span>
-                        <span class="tech-pill">MongoDB</span>
-                        <span class="tech-pill">Node.js</span>
+            
+            <!-- Desktop GSAP Carousel (Hidden on Mobile) -->
+            <div class="desktop-projects">
+                <div id="projects-showcase" class="projects-showcase gsap-carousel-container">
+                <div id="demo"></div>
+                <div id="details-even" class="details glass-card">
+                    <div class="place-box"><span class="text"></span></div>
+                    <div class="title-1"></div>
+                    <div class="title-2"></div>
+                    <div class="desc"></div>
+                    <div class="cta"><a href="#" class="view-project-btn">View Project</a></div>
+                </div>
+                <div id="details-odd" class="details glass-card">
+                    <div class="place-box"><span class="text"></span></div>
+                    <div class="title-1"></div>
+                    <div class="title-2"></div>
+                    <div class="desc"></div>
+                    <div class="cta"><a href="#" class="view-project-btn">View Project</a></div>
+                </div>
+                <div id="pagination">
+                    <div class="indicator"></div>
+                    <div class="progress-sub-background">
+                        <div class="progress-sub-foreground"></div>
                     </div>
-                </a>
-                <a href="https://www.behance.net/gallery/244034965/Product-Design-Case-Study" target="_blank"
-                    class="work-item glass-card fade-in-up delay-2">
-                    <h3>Product Design</h3>
-                    <p>Hands-free door handle product design case study improving hygiene and accessibility in public
-                        spaces.</p>
-                    <div class="tech-stack">
-                        <div class="tech-label">Tech Stack</div>
-                        <span class="tech-pill">Figma</span>
-                        <span class="tech-pill">Sketch</span>
-                        <span class="tech-pill">Illustrator</span>
+                    <div id="slide-numbers"></div>
+                </div>
+                </div>
+            </div>
+
+            <!-- Mobile Stacked Projects (Hidden on Desktop) -->
+            <div id="mobile-projects" class="mobile-projects">
+                <!-- Injected via JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <section id="experience" class="content-section">
+        <div class="container">
+            <h2 class="section-title fade-in-up" data-once="true">Experience</h2>
+            <div class="experience-card glass-card fade-in-up delay-1" data-once="true">
+                <div class="experience-list">
+                    <div class="experience-item">
+                        <div class="experience-header">
+                            <div class="experience-role-company">
+                                <h3>UI/UX Design Intern</h3>
+                                <div class="company-duration">
+                                    <span class="company">Grovyn</span>
+                                    <span class="duration">Mar 2026 to Jun 2026</span>
+                                    <span class="duration">3 Months</span>
+                                </div>
+                            </div>
+                            <a href="assets/documents/Internship_Certificate.pdf" target="_blank" class="cert-link" aria-label="View Certificate" title="View Certificate">
+                                <span class="cert-text">View Certificate</span>
+                            </a>
+                        </div>
+                        <div class="experience-body">
+                            <p>Designed and delivered end-to-end UI/UX prototypes for client projects, translating
+                                requirements into intuitive and engaging user experiences. Guided a team of junior UI/UX
+                                interns by reviewing designs, providing feedback, and ensuring consistency in design quality
+                                and user experience standards across multiple company projects.</p>
+                            <div class="tech-stack">
+                                <div class="tech-label">Tools & Methods</div>
+                                <span class="tech-pill">Figma</span>
+                                <span class="tech-pill">Prototyping</span>
+                                <span class="tech-pill">Design Systems</span>
+                                <span class="tech-pill">User Research</span>
+                                <span class="tech-pill">Design Reviews</span>
+                            </div>
+                        </div>
                     </div>
-                </a>
-                <a href="https://www.behance.net/gallery/240778827/CraftSphere-%28UX-Case-Study%29" target="_blank"
-                    class="work-item glass-card fade-in-up delay-3">
-                    <h3>CraftSphere</h3>
-                    <p>Digital marketplace UI/UX case study connecting local artisans with global customers through
-                        simple UX.</p>
-                    <div class="tech-stack">
-                        <div class="tech-label">Tech Stack</div>
-                        <span class="tech-pill">Figma</span>
-                        <span class="tech-pill">Balsamiq</span>
-                        <span class="tech-pill">Affinity</span>
-                    </div>
-                </a>
+                </div>
             </div>
         </div>
     </section>
@@ -97,13 +138,14 @@
         <div class="container">
             <h2 class="section-title fade-in-up">Skills & Expertise</h2>
             <ul class="expertise-list">
+                <li class="fade-in-up delay-1"><a href="#" class="skill-tag">Product Design</a></li>
                 <li class="fade-in-up delay-1"><a href="#" class="skill-tag">UI/UX Design</a></li>
                 <li class="fade-in-up delay-2"><a href="#" class="skill-tag">Figma & AdobeXD</a></li>
                 <li class="fade-in-up delay-3"><a href="#" class="skill-tag">User Research</a></li>
-                <li class="fade-in-up delay-4"><a href="#" class="skill-tag">Prototyping</a></li>
-                <li class="fade-in-up delay-1"><a href="#" class="skill-tag">React & Express.js</a></li>
-                <li class="fade-in-up delay-2"><a href="#" class="skill-tag">HTML, CSS & JS</a></li>
-                <li class="fade-in-up delay-3"><a href="#" class="skill-tag">MongoDB</a></li>
+                <li class="fade-in-up delay-4"><a href="#" class="skill-tag">Interaction Design</a></li>
+                <li class="fade-in-up delay-1"><a href="#" class="skill-tag">Wireframing</a></li>
+                <li class="fade-in-up delay-2"><a href="#" class="skill-tag">Prototyping</a></li>
+                <li class="fade-in-up delay-3"><a href="#" class="skill-tag">Design Systems</a></li>
             </ul>
         </div>
     </section>
@@ -119,8 +161,6 @@
                     class="icon-link"><i data-lucide="mail"></i></a>
                 <a href="http://www.linkedin.com/in/abhijitsingh003" target="_blank" class="icon-link"><i
                         data-lucide="linkedin"></i></a>
-                <a href="https://github.com/abhijitsingh003" target="_blank" class="icon-link"><i
-                        data-lucide="github"></i></a>
             </div>
         </div>
     </section>
