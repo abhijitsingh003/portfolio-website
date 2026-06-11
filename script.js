@@ -105,7 +105,7 @@ document.addEventListener('DOMContentLoaded', () => {
             title: 'PedalPull',
             title2: '',
             description: 'Hands free door interaction solution designed to improve hygiene and accessibility in public and shared spaces.',
-            image: 'assets/images/pedalpull.png',
+            image: 'assets/images/pedal.png',
             link: 'https://www.behance.net/gallery/244034965/Product-Design-Case-Study'
         },
         {
@@ -226,6 +226,20 @@ document.addEventListener('DOMContentLoaded', () => {
 
             offsetTop = height - cardHeight + 60; // Pushed below active image
             offsetLeft = width - (3 * (cardWidth + gap)) + gap;
+
+            // Position Navigation Arrows next to small cards
+            gsap.set(".prev-btn", {
+                position: 'absolute',
+                left: offsetLeft - 50,
+                top: offsetTop + (cardHeight / 2) - 20,
+                zIndex: 80
+            });
+            gsap.set(".next-btn", {
+                position: 'absolute',
+                left: offsetLeft + 3 * cardWidth + 2 * gap + 10,
+                top: offsetTop + (cardHeight / 2) - 20,
+                zIndex: 80
+            });
 
             return { width, height };
         }
@@ -437,11 +451,149 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         }
 
+        function stepBack() {
+            return new Promise((resolve) => {
+                if (isAnimating) return resolve();
+                isAnimating = true;
+
+                order.unshift(order.pop());
+                detailsEven = !detailsEven;
+
+                const detailsActive = detailsEven ? "#details-even" : "#details-odd";
+                const detailsInactive = detailsEven ? "#details-odd" : "#details-even";
+
+                document.querySelector(`${detailsActive} .place-box .text`).textContent = data[order[0]].place;
+                document.querySelector(`${detailsActive} .title-1`).textContent = data[order[0]].title;
+                document.querySelector(`${detailsActive} .title-2`).textContent = data[order[0]].title2;
+                document.querySelector(`${detailsActive} .desc`).textContent = data[order[0]].description;
+                document.querySelector(`${detailsActive} .cta a`).href = data[order[0]].link || '#';
+
+                gsap.set(detailsActive, { zIndex: 22 });
+                gsap.to(detailsActive, { opacity: 1, delay: 0.4, ease });
+                gsap.to(`${detailsActive} .text`, { y: 0, delay: 0.1, duration: 0.7, ease });
+                gsap.to(`${detailsActive} .title-1`, { y: 0, delay: 0.15, duration: 0.7, ease });
+                gsap.to(`${detailsActive} .title-2`, { y: 0, delay: 0.15, duration: 0.7, ease });
+                gsap.to(`${detailsActive} .desc`, { y: 0, delay: 0.3, duration: 0.4, ease });
+                gsap.to(`${detailsActive} .cta`, { y: 0, delay: 0.35, duration: 0.4, ease });
+
+                gsap.set(detailsInactive, { zIndex: 12 });
+
+                const active = order[0];
+                const prv = order[1];
+                const rest = order.slice(1);
+
+                gsap.set(getCard(prv), { zIndex: 30 });
+                gsap.set(getCard(active), { zIndex: 10 });
+
+                rest.forEach((i) => {
+                    if (i !== prv) gsap.set(getCard(i), { zIndex: 30 });
+                });
+
+                gsap.to(getCardContent(active), {
+                    opacity: 0,
+                    duration: 0.3,
+                    ease,
+                });
+
+                gsap.set(getSliderItem(active), { x: -numberSize });
+                gsap.to(getSliderItem(active), { x: 0, ease });
+                gsap.to(getSliderItem(prv), { x: numberSize, ease });
+
+                gsap.to(".progress-sub-foreground", {
+                    width: 200 * (1 / order.length) * (active + 1),
+                    ease,
+                });
+
+                const { width, height } = updateDimensionsAndOffsets();
+
+                gsap.to(getCard(active), {
+                    x: activeX,
+                    y: activeY,
+                    ease,
+                    width: activeWidth,
+                    height: activeHeight,
+                    borderRadius: window.innerWidth > 768 ? '0 20px 20px 0' : '20px 20px 0 0',
+                    onComplete: () => {
+                        gsap.set(detailsInactive, { opacity: 0 });
+                        gsap.set(`${detailsInactive} .text`, { y: 100 });
+                        gsap.set(`${detailsInactive} .title-1`, { y: 100 });
+                        gsap.set(`${detailsInactive} .title-2`, { y: 100 });
+                        gsap.set(`${detailsInactive} .desc`, { y: 50 });
+                        gsap.set(`${detailsInactive} .cta`, { y: 60 });
+
+                        isAnimating = false;
+                        resolve();
+                    },
+                });
+
+                gsap.to(getCard(prv), {
+                    x: offsetLeft,
+                    y: offsetTop,
+                    width: cardWidth,
+                    height: cardHeight,
+                    borderRadius: 10,
+                    ease,
+                    delay: 0.1,
+                });
+
+                gsap.set(getCardContent(prv), {
+                    x: offsetLeft,
+                    y: offsetTop + cardHeight + 10,
+                    width: cardWidth,
+                    height: 'auto',
+                    opacity: 0,
+                    zIndex: 40,
+                    display: 'block',
+                });
+                gsap.to(getCardContent(prv), {
+                    opacity: 1,
+                    ease,
+                    delay: 0.1,
+                });
+
+                rest.forEach((i, index) => {
+                    if (i !== prv) {
+                        const xNew = offsetLeft + index * (cardWidth + gap);
+                        gsap.to(getCard(i), {
+                            x: xNew,
+                            y: offsetTop,
+                            ease,
+                            delay: 0.1 * (index + 1),
+                        });
+                        gsap.to(getCardContent(i), {
+                            x: xNew,
+                            y: offsetTop + cardHeight + 10,
+                            ease,
+                            delay: 0.1 * (index + 1),
+                        });
+                        gsap.to(getSliderItem(i), { x: (index + 1) * numberSize, ease });
+                    }
+                });
+            });
+        }
+
         // Add click listener to progress sub-background or an indicator to trigger next
         const pagination = document.getElementById('pagination');
         if (pagination) {
             pagination.style.cursor = 'pointer';
-            pagination.addEventListener('click', () => {
+            pagination.addEventListener('click', (e) => {
+                if (e.target.closest('.nav-btn')) return;
+                if (!isAnimating) step();
+            });
+        }
+
+        const prevBtn = document.querySelector('.prev-btn');
+        const nextBtn = document.querySelector('.next-btn');
+
+        if (prevBtn) {
+            prevBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                if (!isAnimating) stepBack();
+            });
+        }
+        if (nextBtn) {
+            nextBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
                 if (!isAnimating) step();
             });
         }
@@ -450,6 +602,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const demo = document.getElementById('demo');
         demo.style.cursor = 'pointer';
         demo.addEventListener('click', (e) => {
+            if (e.target.closest('.nav-btn')) return;
             if (!isAnimating) {
                 step();
             }
